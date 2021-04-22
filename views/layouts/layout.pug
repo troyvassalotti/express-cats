@@ -1,0 +1,17 @@
+doctype html
+html.text-gray-900.text-base.leading-tight(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Local Site | #{title}
+        block styles
+            link(rel="stylesheet", href="/css/main.css")
+    body.min-h-screen.flex.flex-col.justify-between
+        main
+            block content
+                p default content goes here
+        block footer
+            footer.text-center.p-8
+                h2 Thanks for having an interest in our cats!
+                p If you want to see more details about this site, just #[a(href="/about", class="underline text-blue-700 hover:text-blue-400") visit the about page].

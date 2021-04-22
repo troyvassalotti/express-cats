@@ -1,0 +1,23 @@
+extends ./layouts/layout.pug
+
+block content
+    .p-6.max-w-lg.mx-auto.bg-white.rounded-xl.shadow-md.flex.items-center.space-x-4
+        .flex-shrink-0
+            img.w-32.h-32(src="/img/" + cat.url + "-hero.jpg", alt=cat.title)
+        ul.text-gray-500
+            li.text-xl.font-medium #[b.text-black Name:] #{cat.title} 
+            li #[b.text-black Gotcha Day:] #{cat.date}
+            li #[b.text-black Weight:] #{cat.weight}
+            li #[b.text-black Personality:] #{cat.personality} 
+    .container.mx-auto.p-8
+        article(class="grid grid-cols-1 gap-8 justify-items-center items-center md:grid-cols-2")
+            if cat.url == "sophie"
+                include:markdown-it ./partials/sophie.md
+            else
+                include:markdown-it ./partials/remi.md
+        .text-center.mt-8.text-2xl.grid.gap-4
+            if cat.url == "sophie"
+                p: a(href="/cats/" + remi.url, class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2") Read About Remi. 
+            else
+                p: a(href="/cats/" + sophie.url, class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2") Read About Sophie. 
+            p: a(href="/", class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2") Return Home. 
